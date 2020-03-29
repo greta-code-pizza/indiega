@@ -9,6 +9,8 @@
 
 ---
 
+[Visiter le site web](https://indiega.herokuapp.com/)
+
 ### Introduction
 
 ![Screenshot website](./.github/images/screenshot.png)
