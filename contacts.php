@@ -138,5 +138,10 @@
 
 <?php
   $yield = ob_get_clean();
+
+  $title = "Lorem ipsum contacts";
+  $description = "Ma super description de la page Contacts";
+  $active = "contacts";
+
   require("./layout.php");
 ?>
