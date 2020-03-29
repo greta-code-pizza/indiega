@@ -142,5 +142,11 @@ ob_start();
 
 <?php
   $yield = ob_get_clean();
+
+  $title = "Lorem ipsum game";
+  $description = "Ma super description de la page Game";
+  $active = "games";
+
+
   require("./layout.php");
 ?>

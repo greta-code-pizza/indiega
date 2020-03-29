@@ -71,5 +71,10 @@ ob_start();
 
 <?php
   $yield = ob_get_clean();
+
+  $title = "Lorem ipsum blog";
+  $description = "Ma super description de la page Blog";
+  $active = "blog";
+
   require("./layout.php");
 ?>

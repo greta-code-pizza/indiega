@@ -33,5 +33,10 @@ ob_start();
 
 <?php
   $yield = ob_get_clean();
+
+  $title = "Lorem ipsum 404";
+  $description = "Ma super description de la page 404";
+  $active = "404";
+
   require("./layout.php");
 ?>

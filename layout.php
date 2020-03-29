@@ -2,7 +2,8 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>INDIEGA</title>
+    <title>INDIEGA | <?= $title ?></title>
+    <meta name="description" content="<?= $description ?>">
     <!-- Favicon -->
     <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
     <!-- Google Fonts -->
@@ -53,22 +54,22 @@
                                 <span></span>
                             </span>
                             <ul class="menu clearfix">
-                                <li class="inline-block active">
+                                <li class="inline-block <?= $active === 'home' ? 'active' : '' ?>">
                                     <a href="index.php">
                                         Indiega Game
                                     </a>
                                 </li>
-                                <li class="inline-block">
+                                <li class="inline-block <?= $active === 'games' ? 'active' : '' ?>">
                                     <a href="games.php">
                                         Games
                                     </a>
                                 </li>
-                                <li class="inline-block">
+                                <li class="inline-block <?= $active === 'blog' ? 'active' : '' ?>">
                                     <a href="blog.php">
                                         Blog
                                     </a>
                                 </li>
-                                <li class="inline-block">
+                                <li class="inline-block <?= $active === 'contacts' ? 'active' : '' ?>">
                                     <a href="contacts.php">
                                         Contacts
                                     </a>

@@ -151,5 +151,10 @@
 
 <?php
   $yield = ob_get_clean();
+
+  $title = "Lorem ipsum post";
+  $description = "Ma super description de la page Post";
+  $active = "blog";
+
   require("./layout.php");
 ?>

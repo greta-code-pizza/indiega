@@ -1,5 +1,5 @@
 <?php
-ob_start();
+  ob_start();
 ?>
 
 
@@ -687,5 +687,10 @@ ob_start();
 
 <?php
   $yield = ob_get_clean();
+
+  $title = "Éditeur de jeu vidéo indépendants !";
+  $description = "Ma super description de la page Home";
+  $active = "home";
+
   require("./layout.php");
 ?>
