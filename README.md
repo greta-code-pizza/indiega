@@ -30,7 +30,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 git clone git@github.com:greta-code-pizza/indiega.git
 ```
 
-2. Ouvrir le fichier `index.html` (double clic)
+2. Launch PHP server
+
+```sh
+php -S localhost:3000
+````
+
 
 ### Roadmap
 
