@@ -1,5 +1,8 @@
 <?php
-  ob_start();
+    require('./src/Article.php');
+    $data = json_decode(file_get_contents('./article.json'), true);
+    $article = new Article($data);
+    ob_start();
 ?>
 
 
@@ -600,81 +603,26 @@
                 <div class="item col-lg-4 col-md-4 col-sm-12 col-sx-12">
                     <a href="/" class="item-wrap">
                         <div class="image">
-                            <img src="./assets/images/blog-img-1.jpg" alt="" class="img-responsive">
+                            <img src="./assets/images/articles/home-<?= $article->image ?>" alt="<?= $article->alt ?>">
                         </div>
                         <div class="item-info equal-height">
                             <div class="item-header table fsize-14 fweight-700 uppercase">
-                                <div class="table-cell platform">plop</div>
-                                <div class="table-cell color-2 text-right">mar 14, 2020</div>
+                                <div class="table-cell platform"><?= $article->category; ?></div>
+                                <div class="table-cell color-2 text-right"><?= $article->date; ?></div>
                             </div>
-                            <div class="item-title mt20" data-trim="40">Cow biltong pork belly kielbasa shankle</div>
+                            <div class="item-title mt20" data-trim="40"><?= $article->title; ?></div>
                             <div class="item-text mt25 lheight-26" data-trim="130">
-                                Turducken cupim hamburger beef ribs picanha, drumstick buffalo tri-tip cow. Turducken prosciutto shank pork chop.
+                                <?= $article->summary(); ?>
                             </div>
                         </div>
                         <div class="author-comment table">
                             <div class="table-cell valign-middle">
                                 <i class="fa fa-user color-1 fsize-14" aria-hidden="true"></i>
-                                <span class="color-2 ml5">by Admin</span>
+                                <span class="color-2 ml5">by <?= $article->author; ?></span>
                             </div>
                             <div class="table-cell valign-middle text-right">
                                 <i class="fa fa-comment color-1 fsize-14" aria-hidden="true"></i>
-                                <span class="color-2 ml5">126</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="item col-lg-4 col-md-4 col-sm-12 col-sx-12">
-                    <a href="/" class="item-wrap">
-                        <div class="image">
-                            <img src="./assets/images/blog-img-2.jpg" alt="" class="img-responsive">
-                        </div>
-                        <div class="item-info equal-height">
-                            <div class="item-header table fsize-14 fweight-700 uppercase">
-                                <div class="table-cell platform">plip</div>
-                                <div class="table-cell color-2 text-right">mar 18, 2020</div>
-                            </div>
-                            <div class="item-title mt20" data-trim="40">Cow short ribs beef strip steak jowl</div>
-                            <div class="item-text mt25 lheight-26" data-trim="130">
-                                Capicola beef ribs pastrami biltong pork chop corned beef alcatra tail landjaeger. Spare ribs t-bone buffalo capicola, pork
-                                belly.
-                            </div>
-                        </div>
-                        <div class="author-comment table">
-                            <div class="table-cell valign-middle">
-                                <i class="fa fa-user color-1 fsize-14" aria-hidden="true"></i>
-                                <span class="color-2 ml5">by Admin</span>
-                            </div>
-                            <div class="table-cell valign-middle text-right">
-                                <i class="fa fa-comment color-1 fsize-14" aria-hidden="true"></i>
-                                <span class="color-2 ml5">452</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="item col-lg-4 col-md-4 col-sm-12 col-sx-12">
-                    <a href="/" class="item-wrap">
-                        <div class="image">
-                            <img src="./assets/images/blog-img-3.jpg" alt="" class="img-responsive">
-                        </div>
-                        <div class="item-info equal-height">
-                            <div class="item-header table fsize-14 fweight-700 uppercase">
-                                <div class="table-cell platform">ps vita</div>
-                                <div class="table-cell color-2 text-right">mar 23, 2020</div>
-                            </div>
-                            <div class="item-title mt20" data-trim="40">Boudin shankle pork belly turducken spare rib</div>
-                            <div class="item-text mt25 lheight-26" data-trim="130">
-                                Capicola chicken rump biltong boudin corned beef prosciutto short loin pork chop fatback flank beef porchetta tenderloin.
-                            </div>
-                        </div>
-                        <div class="author-comment table">
-                            <div class="table-cell valign-middle">
-                                <i class="fa fa-user color-1 fsize-14" aria-hidden="true"></i>
-                                <span class="color-2 ml5">by Admin</span>
-                            </div>
-                            <div class="table-cell valign-middle text-right">
-                                <i class="fa fa-comment color-1 fsize-14" aria-hidden="true"></i>
-                                <span class="color-2 ml5">364</span>
+                                <span class="color-2 ml5"><?= $article->likes; ?></span>
                             </div>
                         </div>
                     </a>

@@ -1,5 +1,8 @@
 <?php
-ob_start();
+    require('./src/Article.php');
+    $data = json_decode(file_get_contents('./article.json'), true);
+    $article = new Article($data);
+    ob_start();
 ?>
 <!-- PAGE NAME START -->
 <section class="page-name parallax" data-paroller-factor="0.1" data-paroller-type="background" data-paroller-direction="vertical">
@@ -24,7 +27,7 @@ ob_start();
             <div class="col-lg-8 col-md-8 col-md-push-2">
                 <article class="vertical-item format-thumb fsize-0 clearfix">
                     <div class="item-left-img col-lg-4 col-md-4 col-sm-12 col-xs-12 equal-height">
-                        <img src="./assets/images/blog/blog-img-1.jpg" alt="">
+                        <img src="./assets/images/articles/blog-<?= $article->image ?>" alt="<?= $article->alt ?>">
                     </div>
                     <div class="post-content col-lg-8 col-md-8 col-sm-12 col-xs-12 equal-height">
                         <div class="post-wrapper">
@@ -32,33 +35,33 @@ ob_start();
                                 <div class="table-row">
                                     <div class="table-cell valign-top">
                                         <div class="platform fsize-14 fweight-700 uppercase">
-                                            Plop
+                                            <?= $article->category; ?>
                                         </div>
                                     </div>
                                     <div class="table-cell valign-top text-right">
                                         <div class="fsize-14 fweight-700 uppercase">
-                                            Mar 14, 2020
+                                            <?= $article->date; ?>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="mt15">
                                 <a href="post.php" class="post-title">
-                                    <h5>Cow biltong pork belly kielbasa shankle</h5>
+                                    <h5><?= $article->title; ?></h5>
                                 </a>
                                 <div class="fsize-16 lheight-26 mt15"  data-trim="140">
-                                    Turducken cupim hamburger beef ribs picanha, drumstick buffalo tri-tip cow. Turducken prosciutto shank pork chop.
+                                <?= $article->summary(); ?>
                                 </div>
                             </div>
                         </div>
                         <div class="post-bottom table">
                             <div class="table-cell valign-middle">
                                 <i class="fa fa-user color-1 fsize-14" aria-hidden="true"></i>
-                                <span class="color-2 fsize-14 ml5">by Admin</span>
+                                <span class="color-2 fsize-14 ml5">by <?= $article->author; ?></span>
                             </div>
                             <div class="table-cell valign-middle text-right">
                                 <i class="fa fa-comment color-1 fsize-14" aria-hidden="true"></i>
-                                <span class="color-2 fsize-14 ml5">452</span>
+                                <span class="color-2 fsize-14 ml5"><?= $article->likes; ?></span>
                             </div>
                         </div>
                     </div>
