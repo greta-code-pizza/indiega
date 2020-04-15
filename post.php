@@ -1,5 +1,8 @@
 <?php
-  ob_start();
+    require('./src/Article.php');
+    $data = json_decode(file_get_contents('./article.json'), true);
+    $article = new Article($data);
+    ob_start();
 ?>
 
 <!-- PAGE NAME START -->
@@ -26,7 +29,7 @@
             <div class="full-col col-lg-10 col-md-10 col-md-push-1">
                 <div class="post-content mt60">
                     <div class="post-image">
-                        <img src="./assets/images/post/post-full.jpg" alt="">
+                        <img src="./assets/images/articles/article-<?= $article->image ?>" alt="<?= $article->alt ?>">
                     </div>
                     <div class="post-bottom background-4">
                         <div class="p60">
@@ -34,33 +37,29 @@
                                 <div class="table-row">
                                     <div class="table-cell valign-top">
                                         <div class="fsize-14 fweight-700 uppercase color-1">
-                                            Plop
+                                            <?= $article->category ?>
                                         </div>
                                     </div>
                                     <div class="table-cell valign-top text-right">
                                         <div class="fsize-14 fweight-700 uppercase">
-                                            Mar 14, 2020
+                                            <?= $article->date ?>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="mt20">
-                                <p>Brisket pig pork belly beef porchetta filet mignon pork loin capicola ribeye cow picanha. Bresaola leberkas pork loin, shank hamburger chuck andouille cupim fatback alcatra turkey flank bacon. Bresaola pork loin fatback meatloaf turducken pork belly andouille ham hock picanha. Pancetta sausage cow, spare ribs flank kevin hamburger tri-tip rump pork loin alcatra jerky pig tenderloin. Meatloaf jowl tail doner ground.</p>
-                                <p>Brisket ham hock chuck cupim andouille beef ribs turducken pork belly. Picanha filet mignon tenderloin venison sirloin biltong. Picanha jerky venison chuck, filet mignon sirloin t-bone rump short loin salami pork loin tenderloin corned beef swine ground round. Ball tip rump prosciutto ham. Sirloin venison jowl brisket shank andouille.</p>
-                                <p>Brisket ham hock chuck cupim andouille beef ribs turducken pork belly. Picanha filet mignon tenderloin venison sirloin biltong. Picanha jerky venison chuck, filet mignon sirloin t-bone rump short loin salami pork loin tenderloin corned beef swine ground round. Ball tip rump prosciutto ham. Sirloin venison jowl brisket shank andouille. </p>
-                                <p>Brisket ham hock chuck cupim andouille beef ribs turducken pork belly. Picanha filet mignon tenderloin venison sirloin biltong. Picanha jerky venison chuck, filet mignon sirloin t-bone rump short loin salami pork loin tenderloin corned beef swine ground round. Ball tip rump prosciutto ham. Sirloin venison jowl brisket shank andouille. </p>
-                                <p>Brisket ham hock chuck cupim andouille beef ribs turducken pork belly. Picanha filet mignon tenderloin venison sirloin biltong. Picanha jerky venison chuck, filet mignon sirloin t-bone rump short loin salami pork loin tenderloin corned beef swine ground round. Ball tip rump prosciutto ham. Sirloin venison jowl brisket shank andouille. </p>
+                                <?= $article->content ?>
                             </div>
                         </div>
                         <div class="bottom-info-bl">
                             <div class="table">
                                 <div class="table-cell valign-middle">
                                     <i class="fa fa-user color-6 fsize-14" aria-hidden="true"></i>
-                                    <span class="color-2 fsize-14 ml5">by Admin</span>
+                                    <span class="color-2 fsize-14 ml5">by <?= $article->author ?></span>
                                 </div>
                                 <div class="table-cell valign-middle text-right">
                                     <i class="fa fa-comment color-6 fsize-14" aria-hidden="true"></i>
-                                    <span class="color-2 fsize-14 ml5">452</span>
+                                    <span class="color-2 fsize-14 ml5"><?= $article->likes ?></span>
                                 </div>
                             </div>
                         </div>
