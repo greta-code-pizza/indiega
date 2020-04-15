@@ -1,3 +1,4 @@
 <?php
 echo 'Yahoo';
-echo getenv('PLOP');
+$plop = getenv('PLOP');
+var_dump($plop);
