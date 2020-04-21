@@ -7,4 +7,4 @@ Require valid-user
 </FilesMatch>
 
 RewriteEngine On
-RewriteRule ^([^\/]+)\/?  router.php?page=$1 [L]
+RewriteRule ^/?([a-z]+)$  /router.php?page=$1 [L]
