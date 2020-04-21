@@ -1,0 +1,10 @@
+<FilesMatch "admin">
+AuthName "Page d'administration protegee"
+AddDefaultCharset UTF-8
+AuthType Basic
+AuthUserFile "/Users/nicolaslechenic/PhpstormProjects/Indiega/.htpasswd"
+Require valid-user
+</FilesMatch>
+
+RewriteEngine On
+RewriteRule ^([^\/]+)\/?  router.php?page=$1 [L]
