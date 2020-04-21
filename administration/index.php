@@ -1,3 +1,3 @@
 <?php
 
-echo("Page d'administration !");
+echo("<a href='plop'>Go plop</a>");
